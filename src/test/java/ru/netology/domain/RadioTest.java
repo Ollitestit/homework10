@@ -13,26 +13,26 @@ public class RadioTest {
     @Test
     public void shouldSetQuantityStation() {
         Radio radio = new Radio();
-        Assertions.assertEquals(10, radio.getQuantityStation());
+        Assertions.assertEquals(20, radio.getQuantityStation());
     }
 
     @Test
     public void shouldSetStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(8);
-        Assertions.assertEquals(8, radio.getCurrentStation());
+        radio.setCurrentStation(15);
+        Assertions.assertEquals(15, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSetMaxStation() {
         Radio radio = new Radio();
-        Assertions.assertEquals(9, radio.getMaxStation());
+        Assertions.assertEquals(19, radio.getMaxStation());
     }
 
     @Test
     public void shouldSetStationAboveMax() {
         Radio radio = new Radio();
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(20);
         Assertions.assertEquals(0, radio.getCurrentStation());
 
     }
@@ -56,7 +56,7 @@ public class RadioTest {
     @Test
     public void shouldSetNextStationAboveMax() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(19);
         radio.next();
         Assertions.assertEquals(0, radio.getCurrentStation());
 
@@ -65,9 +65,9 @@ public class RadioTest {
     @Test
     public void shouldSetPrevStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(19);
         radio.prev();
-        Assertions.assertEquals(8, radio.getCurrentStation());
+        Assertions.assertEquals(18, radio.getCurrentStation());
 
     }
 
@@ -76,7 +76,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentStation(-1);
         radio.prev();
-        Assertions.assertEquals(9, radio.getMaxStation());
+        Assertions.assertEquals(19, radio.getMaxStation());
 
     }
 
