@@ -25,7 +25,7 @@ public class RadioTest {
     }
 
     @Test
-    public void sshouldSetStationAboveMax() {
+    public void shouldSetStationAboveMax() {
         Radio radio = new Radio();
         radio.setCurrentStation(10);
         Assertions.assertEquals(0, radio.getCurrentStation());
