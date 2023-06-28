@@ -4,35 +4,30 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    @Test
-    public void shouldSetQuantityStationByUser() {
-        Radio radio = new Radio(10);
-        Assertions.assertEquals(10, radio.getQuantityStation());
-    }
 
     @Test
-    public void shouldSetQuantityStation() {
-        Radio radio = new Radio();
-        Assertions.assertEquals(20, radio.getQuantityStation());
-    }
-
-    @Test
-    public void shouldSetStation() {
-        Radio radio = new Radio();
+    public void shouldSetStationWithParameter() {
+        Radio radio = new Radio(20);
         radio.setCurrentStation(15);
         Assertions.assertEquals(15, radio.getCurrentStation());
+    }
+    @Test
+    public void shouldSetStationAboveMaxWithParameter() {
+        Radio radio = new Radio(20);
+        radio.setCurrentStation(21);
+        Assertions.assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSetMaxStation() {
         Radio radio = new Radio();
-        Assertions.assertEquals(19, radio.getMaxStation());
+        Assertions.assertEquals(9, radio.getMaxStation());
     }
 
     @Test
-    public void shouldSetStationAboveMax() {
+    public void sshouldSetStationAboveMax() {
         Radio radio = new Radio();
-        radio.setCurrentStation(20);
+        radio.setCurrentStation(10);
         Assertions.assertEquals(0, radio.getCurrentStation());
 
     }
@@ -56,7 +51,7 @@ public class RadioTest {
     @Test
     public void shouldSetNextStationAboveMax() {
         Radio radio = new Radio();
-        radio.setCurrentStation(19);
+        radio.setCurrentStation(9);
         radio.next();
         Assertions.assertEquals(0, radio.getCurrentStation());
 
@@ -65,18 +60,18 @@ public class RadioTest {
     @Test
     public void shouldSetPrevStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(19);
+        radio.setCurrentStation(9);
         radio.prev();
-        Assertions.assertEquals(18, radio.getCurrentStation());
+        Assertions.assertEquals(8, radio.getCurrentStation());
 
     }
 
     @Test
     public void shouldSetPrevStationBelowMin() {
         Radio radio = new Radio();
-        radio.setCurrentStation(-1);
+        radio.setCurrentStation(0);
         radio.prev();
-        Assertions.assertEquals(19, radio.getMaxStation());
+        Assertions.assertEquals(9, radio.getMaxStation());
 
     }
 
